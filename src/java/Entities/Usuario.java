@@ -42,6 +42,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuario.findBySocioCategoria", query = "SELECT u FROM Usuario u WHERE u.usuarioPK.socioCategoria = :socioCategoria")})
 public class Usuario implements Serializable {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "nomUser")
+    private Collection<Afiliado> afiliadoCollection;
+
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected UsuarioPK usuarioPK;
@@ -209,6 +212,15 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Entities.Usuario[ usuarioPK=" + usuarioPK + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Afiliado> getAfiliadoCollection() {
+        return afiliadoCollection;
+    }
+
+    public void setAfiliadoCollection(Collection<Afiliado> afiliadoCollection) {
+        this.afiliadoCollection = afiliadoCollection;
     }
     
 }

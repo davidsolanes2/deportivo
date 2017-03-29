@@ -40,6 +40,11 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Actividad.findByFecha", query = "SELECT a FROM Actividad a WHERE a.fecha = :fecha")})
 public class Actividad implements Serializable {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividades")
+    private Collection<RealizanActividades> realizanActividadesCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actSuscrito")
+    private Collection<Afiliado> afiliadoCollection;
+
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ActividadPK actividadPK;
@@ -126,6 +131,24 @@ public class Actividad implements Serializable {
     @Override
     public String toString() {
         return "Entities.Actividad[ actividadPK=" + actividadPK + " ]";
+    }
+
+    @XmlTransient
+    public Collection<RealizanActividades> getRealizanActividadesCollection() {
+        return realizanActividadesCollection;
+    }
+
+    public void setRealizanActividadesCollection(Collection<RealizanActividades> realizanActividadesCollection) {
+        this.realizanActividadesCollection = realizanActividadesCollection;
+    }
+
+    @XmlTransient
+    public Collection<Afiliado> getAfiliadoCollection() {
+        return afiliadoCollection;
+    }
+
+    public void setAfiliadoCollection(Collection<Afiliado> afiliadoCollection) {
+        this.afiliadoCollection = afiliadoCollection;
     }
     
 }

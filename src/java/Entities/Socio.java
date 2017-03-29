@@ -39,6 +39,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Socio.findByFechaBaja", query = "SELECT s FROM Socio s WHERE s.fechaBaja = :fechaBaja")})
 public class Socio implements Serializable {
 
+    @JoinColumn(name = "afiliado", referencedColumnName = "actSuscrito")
+    @ManyToOne
+    private Afiliado afiliado;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -138,6 +142,14 @@ public class Socio implements Serializable {
     @Override
     public String toString() {
         return "Entities.Socio[ idsocio=" + idsocio + " ]";
+    }
+
+    public Afiliado getAfiliado() {
+        return afiliado;
+    }
+
+    public void setAfiliado(Afiliado afiliado) {
+        this.afiliado = afiliado;
     }
     
 }
