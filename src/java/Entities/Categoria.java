@@ -35,8 +35,6 @@ public class Categoria implements Serializable {
     protected CategoriaPK categoriaPK;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
     private Collection<Empleado> empleadoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
-    private Collection<Usuario> usuarioCollection;
 
     public Categoria() {
     }
@@ -64,15 +62,6 @@ public class Categoria implements Serializable {
 
     public void setEmpleadoCollection(Collection<Empleado> empleadoCollection) {
         this.empleadoCollection = empleadoCollection;
-    }
-
-    @XmlTransient
-    public Collection<Usuario> getUsuarioCollection() {
-        return usuarioCollection;
-    }
-
-    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
-        this.usuarioCollection = usuarioCollection;
     }
 
     @Override

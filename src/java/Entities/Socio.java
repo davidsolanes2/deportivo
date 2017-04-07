@@ -34,14 +34,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Socio.findAll", query = "SELECT s FROM Socio s")
     , @NamedQuery(name = "Socio.findByIdsocio", query = "SELECT s FROM Socio s WHERE s.idsocio = :idsocio")
-    , @NamedQuery(name = "Socio.findByMail", query = "SELECT s FROM Socio s WHERE s.mail = :mail")
-    , @NamedQuery(name = "Socio.findByFechaAlta", query = "SELECT s FROM Socio s WHERE s.fechaAlta = :fechaAlta")
-    , @NamedQuery(name = "Socio.findByFechaBaja", query = "SELECT s FROM Socio s WHERE s.fechaBaja = :fechaBaja")})
+    , @NamedQuery(name = "Socio.findByFechaBaja", query = "SELECT s FROM Socio s WHERE s.fechaBaja = :fechaBaja")
+    , @NamedQuery(name = "Socio.findByCuota", query = "SELECT s FROM Socio s WHERE s.cuota = :cuota")
+    , @NamedQuery(name = "Socio.findBySocioParticipa", query = "SELECT s FROM Socio s WHERE s.socioParticipa = :socioParticipa")})
 public class Socio implements Serializable {
-
-    @JoinColumn(name = "afiliado", referencedColumnName = "actSuscrito")
-    @ManyToOne
-    private Afiliado afiliado;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,22 +45,19 @@ public class Socio implements Serializable {
     @Basic(optional = false)
     @Column(name = "idsocio")
     private Integer idsocio;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "mail")
-    private String mail;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "fechaAlta")
-    @Temporal(TemporalType.DATE)
-    private Date fechaAlta;
     @Column(name = "fechaBaja")
     @Temporal(TemporalType.DATE)
     private Date fechaBaja;
-    @JoinColumn(name = "suscrito", referencedColumnName = "actSuscrito")
-    @ManyToOne
-    private Suscrito suscrito;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "cuota")
+    private float cuota;
+    @Size(max = 50)
+    @Column(name = "socio_participa")
+    private String socioParticipa;
+    @JoinColumn(name = "idnifUsuarionif", referencedColumnName = "idnif")
+    @ManyToOne(optional = false)
+    private Usuario idnifUsuarionif;
 
     public Socio() {
     }
@@ -73,10 +66,9 @@ public class Socio implements Serializable {
         this.idsocio = idsocio;
     }
 
-    public Socio(Integer idsocio, String mail, Date fechaAlta) {
+    public Socio(Integer idsocio, float cuota) {
         this.idsocio = idsocio;
-        this.mail = mail;
-        this.fechaAlta = fechaAlta;
+        this.cuota = cuota;
     }
 
     public Integer getIdsocio() {
@@ -87,22 +79,6 @@ public class Socio implements Serializable {
         this.idsocio = idsocio;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public Date getFechaAlta() {
-        return fechaAlta;
-    }
-
-    public void setFechaAlta(Date fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
-
     public Date getFechaBaja() {
         return fechaBaja;
     }
@@ -111,12 +87,28 @@ public class Socio implements Serializable {
         this.fechaBaja = fechaBaja;
     }
 
-    public Suscrito getSuscrito() {
-        return suscrito;
+    public float getCuota() {
+        return cuota;
     }
 
-    public void setSuscrito(Suscrito suscrito) {
-        this.suscrito = suscrito;
+    public void setCuota(float cuota) {
+        this.cuota = cuota;
+    }
+
+    public String getSocioParticipa() {
+        return socioParticipa;
+    }
+
+    public void setSocioParticipa(String socioParticipa) {
+        this.socioParticipa = socioParticipa;
+    }
+
+    public Usuario getIdnifUsuarionif() {
+        return idnifUsuarionif;
+    }
+
+    public void setIdnifUsuarionif(Usuario idnifUsuarionif) {
+        this.idnifUsuarionif = idnifUsuarionif;
     }
 
     @Override
@@ -142,14 +134,6 @@ public class Socio implements Serializable {
     @Override
     public String toString() {
         return "Entities.Socio[ idsocio=" + idsocio + " ]";
-    }
-
-    public Afiliado getAfiliado() {
-        return afiliado;
-    }
-
-    public void setAfiliado(Afiliado afiliado) {
-        this.afiliado = afiliado;
     }
     
 }

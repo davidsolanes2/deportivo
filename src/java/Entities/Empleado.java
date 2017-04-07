@@ -56,12 +56,12 @@ public class Empleado implements Serializable {
     @Column(name = "fechaBaja")
     @Temporal(TemporalType.DATE)
     private Date fechaBaja;
-    @JoinColumn(name = "categoria", referencedColumnName = "descripcion")
+    @JoinColumn(name = "categoria", referencedColumnName = "idcategoria")
     @ManyToOne(optional = false)
     private Categoria categoria;
-    @JoinColumn(name = "nifEmpleado", referencedColumnName = "nifGeneral")
+    @JoinColumn(name = "idEmpleadonif", referencedColumnName = "idnif")
     @ManyToOne(optional = false)
-    private Nif nifEmpleado;
+    private Usuario idEmpleadonif;
 
     public Empleado() {
     }
@@ -116,12 +116,12 @@ public class Empleado implements Serializable {
         this.categoria = categoria;
     }
 
-    public Nif getNifEmpleado() {
-        return nifEmpleado;
+    public Usuario getIdEmpleadonif() {
+        return idEmpleadonif;
     }
 
-    public void setNifEmpleado(Nif nifEmpleado) {
-        this.nifEmpleado = nifEmpleado;
+    public void setIdEmpleadonif(Usuario idEmpleadonif) {
+        this.idEmpleadonif = idEmpleadonif;
     }
 
     @Override

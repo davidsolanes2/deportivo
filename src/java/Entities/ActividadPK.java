@@ -27,19 +27,13 @@ public class ActividadPK implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "descripcionActividad")
     private String descripcionActividad;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "actividad")
-    private String actividad;
 
     public ActividadPK() {
     }
 
-    public ActividadPK(int idactividad, String descripcionActividad, String actividad) {
+    public ActividadPK(int idactividad, String descripcionActividad) {
         this.idactividad = idactividad;
         this.descripcionActividad = descripcionActividad;
-        this.actividad = actividad;
     }
 
     public int getIdactividad() {
@@ -58,20 +52,11 @@ public class ActividadPK implements Serializable {
         this.descripcionActividad = descripcionActividad;
     }
 
-    public String getActividad() {
-        return actividad;
-    }
-
-    public void setActividad(String actividad) {
-        this.actividad = actividad;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) idactividad;
         hash += (descripcionActividad != null ? descripcionActividad.hashCode() : 0);
-        hash += (actividad != null ? actividad.hashCode() : 0);
         return hash;
     }
 
@@ -88,15 +73,12 @@ public class ActividadPK implements Serializable {
         if ((this.descripcionActividad == null && other.descripcionActividad != null) || (this.descripcionActividad != null && !this.descripcionActividad.equals(other.descripcionActividad))) {
             return false;
         }
-        if ((this.actividad == null && other.actividad != null) || (this.actividad != null && !this.actividad.equals(other.actividad))) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Entities.ActividadPK[ idactividad=" + idactividad + ", descripcionActividad=" + descripcionActividad + ", actividad=" + actividad + " ]";
+        return "Entities.ActividadPK[ idactividad=" + idactividad + ", descripcionActividad=" + descripcionActividad + " ]";
     }
     
 }

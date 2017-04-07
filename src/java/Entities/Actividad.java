@@ -22,6 +22,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -36,25 +37,25 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Actividad.findAll", query = "SELECT a FROM Actividad a")
     , @NamedQuery(name = "Actividad.findByIdactividad", query = "SELECT a FROM Actividad a WHERE a.actividadPK.idactividad = :idactividad")
     , @NamedQuery(name = "Actividad.findByDescripcionActividad", query = "SELECT a FROM Actividad a WHERE a.actividadPK.descripcionActividad = :descripcionActividad")
-    , @NamedQuery(name = "Actividad.findByActividad", query = "SELECT a FROM Actividad a WHERE a.actividadPK.actividad = :actividad")
+    , @NamedQuery(name = "Actividad.findByActividad", query = "SELECT a FROM Actividad a WHERE a.actividad = :actividad")
     , @NamedQuery(name = "Actividad.findByFecha", query = "SELECT a FROM Actividad a WHERE a.fecha = :fecha")})
 public class Actividad implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividades")
-    private Collection<RealizanActividades> realizanActividadesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actSuscrito")
-    private Collection<Afiliado> afiliadoCollection;
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ActividadPK actividadPK;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "actividad")
+    private String actividad;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "fecha")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actSuscrito")
-    private Collection<Suscrito> suscritoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividad")
+    private Collection<Participa> participaCollection;
     @JoinColumn(name = "descripcionActividad", referencedColumnName = "descripcion", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Sala sala;
@@ -66,13 +67,14 @@ public class Actividad implements Serializable {
         this.actividadPK = actividadPK;
     }
 
-    public Actividad(ActividadPK actividadPK, Date fecha) {
+    public Actividad(ActividadPK actividadPK, String actividad, Date fecha) {
         this.actividadPK = actividadPK;
+        this.actividad = actividad;
         this.fecha = fecha;
     }
 
-    public Actividad(int idactividad, String descripcionActividad, String actividad) {
-        this.actividadPK = new ActividadPK(idactividad, descripcionActividad, actividad);
+    public Actividad(int idactividad, String descripcionActividad) {
+        this.actividadPK = new ActividadPK(idactividad, descripcionActividad);
     }
 
     public ActividadPK getActividadPK() {
@@ -81,6 +83,14 @@ public class Actividad implements Serializable {
 
     public void setActividadPK(ActividadPK actividadPK) {
         this.actividadPK = actividadPK;
+    }
+
+    public String getActividad() {
+        return actividad;
+    }
+
+    public void setActividad(String actividad) {
+        this.actividad = actividad;
     }
 
     public Date getFecha() {
@@ -92,12 +102,12 @@ public class Actividad implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Suscrito> getSuscritoCollection() {
-        return suscritoCollection;
+    public Collection<Participa> getParticipaCollection() {
+        return participaCollection;
     }
 
-    public void setSuscritoCollection(Collection<Suscrito> suscritoCollection) {
-        this.suscritoCollection = suscritoCollection;
+    public void setParticipaCollection(Collection<Participa> participaCollection) {
+        this.participaCollection = participaCollection;
     }
 
     public Sala getSala() {
@@ -131,24 +141,6 @@ public class Actividad implements Serializable {
     @Override
     public String toString() {
         return "Entities.Actividad[ actividadPK=" + actividadPK + " ]";
-    }
-
-    @XmlTransient
-    public Collection<RealizanActividades> getRealizanActividadesCollection() {
-        return realizanActividadesCollection;
-    }
-
-    public void setRealizanActividadesCollection(Collection<RealizanActividades> realizanActividadesCollection) {
-        this.realizanActividadesCollection = realizanActividadesCollection;
-    }
-
-    @XmlTransient
-    public Collection<Afiliado> getAfiliadoCollection() {
-        return afiliadoCollection;
-    }
-
-    public void setAfiliadoCollection(Collection<Afiliado> afiliadoCollection) {
-        this.afiliadoCollection = afiliadoCollection;
     }
     
 }

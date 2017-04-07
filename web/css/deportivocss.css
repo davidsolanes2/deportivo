@@ -1,0 +1,65 @@
+
+/* 
+    Created on : 26-feb-2017, 18:38:12
+    Author     : david
+*/
+
+
+div table td
+{
+   padding-left: 50px;
+   padding-top: 10px;
+}
+
+div table input 
+{
+    width: 225px;
+    height: 50px;
+}
+
+#relleno {
+    width:900px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color: #269abc;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#principal
+{
+    width:800px;
+    border: 1px solid #000000;
+    margin: 0 auto;
+    height: 100px;
+    text-align: center;
+}
+
+input[type=number]
+{
+    width: 100px !important;
+    height: 35px !important;
+}
+
+input[type=text]
+{
+    width:  100px !important;
+    height: 35px !important;
+}
+
+.pie_1
+{
+    width: 1200px;
+    height: 40px;
+    background-color: grey;
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+
+.pie_2 
+{
+    padding-bottom: 5px;
+}
