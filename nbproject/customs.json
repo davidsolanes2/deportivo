@@ -1,8 +1,15 @@
 {
-    "elements": {},
+    "elements": {
+        "tab": {
+            "attributes": {
+                "cellpadding": {}
+            }
+        }
+    },
     "attributes": {
         "bankground-color": {
             "context": "footer"
-        }
+        },
+        "style": {}
     }
 }

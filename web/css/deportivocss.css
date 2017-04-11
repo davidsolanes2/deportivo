@@ -18,18 +18,25 @@ div table input
 }
 
 #relleno {
-    width:900px;
+    
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
     background-color: #269abc;
-    text-align: center;
     margin: 0 auto;
+}
+
+.titulo
+{
+    font-family: serif;
+    font-size:50px;
+    color: #c8e5bc;
+    
 }
 
 #principal
 {
-    width:800px;
+    width: 700px;
     border: 1px solid #000000;
     margin: 0 auto;
     height: 100px;
@@ -50,16 +57,25 @@ input[type=text]
 
 .pie_1
 {
-    width: 1200px;
-    height: 40px;
+    width: 1240px;
+    height: 80px;
     background-color: grey;
     font-size: 20px;
     color: white;
     margin-left: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 15px;
 }
 
 .pie_2 
 {
     padding-bottom: 5px;
+}
+
+#boton_1
+{
+    float: right;
+    margin-left: 900px;
+    margin-right: 5px;
 }
