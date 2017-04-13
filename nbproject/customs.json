@@ -7,9 +7,15 @@
         }
     },
     "attributes": {
+        "margin-left": {
+            "context": "td"
+        },
         "bankground-color": {
             "context": "footer"
         },
-        "style": {}
+        "style": {},
+        "height": {
+            "context": "tr"
+        }
     }
 }
