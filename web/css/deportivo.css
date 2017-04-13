@@ -73,15 +73,28 @@ input[type=text]
     padding-bottom: 5px;
 }
 
-#boton_1, #boton_2, #boton_3
+#boton_1, #boton_2, #boton_3, #boton_9
 {
     float: right;
     margin-left: 900px;
     margin-right: 5px;
 }
 
-#boton_4, #boton_5, #boton_6, #boton_7
+#boton_4, #boton_5, #boton_6, #boton_8
 {
     float: left;
     margin-left: 5px;
+}
+
+#boton_7
+{
+    float: left;
+    margin-left: 286px;
+}
+
+#columnas
+{
+    list-style: none;
+    font-size: 20px;
+    color: black;
 }
