@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Serverlet;
 
+import Beans.DeportivoEJB;
+import Entities.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author david
  */
-public class NewServlet extends HttpServlet {
+public class NewUsuario extends HttpServlet {
+    
+    @EJB
+    DeportivoEJB miEjb;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +37,21 @@ public class NewServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
+            out.println("<title>Servlet NewUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
+            String a = request.getParameter("nombre");
+            
+            
+            Usuario u = new Usuario (a);
+            if (miEjb.insertUsuario(u)) {
+                out.println("Usuario dado de alta");
+            }
+            else {
+                out.println("Ya existe un Usuario con ese nif");
+            }
+            
+            out.println("<h1><h1>");
             out.println("</body>");
             out.println("</html>");
         }
