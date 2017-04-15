@@ -46,5 +46,12 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/deportivo?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">d4v1d001</property>
+    <mapping resource="Pojos/Usuario.hbm.xml"/>
+    <mapping resource="Pojos/Empleado.hbm.xml"/>
+    <mapping resource="Pojos/Participa.hbm.xml"/>
+    <mapping resource="Pojos/Socio.hbm.xml"/>
+    <mapping resource="Pojos/Categoria.hbm.xml"/>
+    <mapping resource="Pojos/Actividad.hbm.xml"/>
+    <mapping resource="Pojos/Sala.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Participa" table="participa" catalog="deportivo" optimistic-lock="version">
+        <composite-id name="id" class="Pojos.ParticipaId">
+            <key-property name="idparticipa" type="int">
+                <column name="idparticipa" />
+            </key-property>
+            <key-property name="nifUser" type="string">
+                <column name="nifUser" length="10" />
+            </key-property>
+            <key-property name="actSuscrito" type="int">
+                <column name="actSuscrito" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="actividad" class="Pojos.Actividad" update="false" insert="false" fetch="select">
+            <column name="actSuscrito" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="Pojos.Usuario" update="false" insert="false" fetch="select">
+            <column name="nifUser" length="10" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

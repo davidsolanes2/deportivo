@@ -7,8 +7,7 @@ USE deportivo;
 CREATE TABLE categoria (
   idcategoria int(11) NOT NULL AUTO_INCREMENT,
   descripcion varchar(50) NOT NULL,
-  KEY (descripcion),
-  PRIMARY KEY (idcategoria, descripcion)
+  PRIMARY KEY (idcategoria)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /* Table structure for table usuario*/
@@ -59,9 +58,8 @@ CREATE TABLE empleado (
 CREATE TABLE sala (
   idsala int(11) NOT NULL AUTO_INCREMENT,
   descripcion varchar(50) NOT NULL,
-  actividad varchar(50) NOT NULL,
-  KEY (descripcion),
-  PRIMARY KEY (idsala, descripcion)
+  actividadSala varchar(50) NOT NULL,
+  PRIMARY KEY (idsala)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /* Table structure for table `actividad` */
@@ -71,9 +69,8 @@ CREATE TABLE actividad (
   descripcionActividad varchar(50) NOT NULL,
   actividad varchar(50) NOT NULL,
   fecha datetime NOT NULL,
-  KEY (actividad),
-  PRIMARY KEY (idactividad, descripcionActividad),
-  FOREIGN KEY (descripcionActividad) REFERENCES sala(descripcion) ON UPDATE CASCADE
+  PRIMARY KEY (idactividad),
+  FOREIGN KEY (idactividad) REFERENCES sala(idsala) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /* Table structure for table participa*/

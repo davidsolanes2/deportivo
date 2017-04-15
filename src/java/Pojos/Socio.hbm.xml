@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Pojos.Socio" table="socio" catalog="deportivo" optimistic-lock="version">
+        <id name="idsocio" type="java.lang.Integer">
+            <column name="idsocio" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="Pojos.Usuario" fetch="select">
+            <column name="idnifUsuarionif" length="10" not-null="true" />
+        </many-to-one>
+        <property name="fechaBaja" type="date">
+            <column name="fechaBaja" length="10" />
+        </property>
+        <property name="cuota" type="float">
+            <column name="cuota" precision="5" not-null="true" />
+        </property>
+        <property name="socioParticipa" type="string">
+            <column name="socio_participa" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

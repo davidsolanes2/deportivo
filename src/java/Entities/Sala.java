@@ -6,20 +6,20 @@
 package Entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,44 +30,57 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Sala.findAll", query = "SELECT s FROM Sala s")
-    , @NamedQuery(name = "Sala.findByIdsala", query = "SELECT s FROM Sala s WHERE s.salaPK.idsala = :idsala")
-    , @NamedQuery(name = "Sala.findByDescripcion", query = "SELECT s FROM Sala s WHERE s.salaPK.descripcion = :descripcion")
+    , @NamedQuery(name = "Sala.findByIdsala", query = "SELECT s FROM Sala s WHERE s.idsala = :idsala")
+    , @NamedQuery(name = "Sala.findByDescripcion", query = "SELECT s FROM Sala s WHERE s.descripcion = :descripcion")
     , @NamedQuery(name = "Sala.findByActividad", query = "SELECT s FROM Sala s WHERE s.actividad = :actividad")})
 public class Sala implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected SalaPK salaPK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "idsala")
+    private Integer idsala;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "descripcion")
+    private String descripcion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "actividad")
     private String actividad;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sala")
-    private Collection<Actividad> actividadCollection;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "sala")
+    private Actividad actividad1;
 
     public Sala() {
     }
 
-    public Sala(SalaPK salaPK) {
-        this.salaPK = salaPK;
+    public Sala(Integer idsala) {
+        this.idsala = idsala;
     }
 
-    public Sala(SalaPK salaPK, String actividad) {
-        this.salaPK = salaPK;
+    public Sala(Integer idsala, String descripcion, String actividad) {
+        this.idsala = idsala;
+        this.descripcion = descripcion;
         this.actividad = actividad;
     }
 
-    public Sala(int idsala, String descripcion) {
-        this.salaPK = new SalaPK(idsala, descripcion);
+    public Integer getIdsala() {
+        return idsala;
     }
 
-    public SalaPK getSalaPK() {
-        return salaPK;
+    public void setIdsala(Integer idsala) {
+        this.idsala = idsala;
     }
 
-    public void setSalaPK(SalaPK salaPK) {
-        this.salaPK = salaPK;
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getActividad() {
@@ -78,19 +91,18 @@ public class Sala implements Serializable {
         this.actividad = actividad;
     }
 
-    @XmlTransient
-    public Collection<Actividad> getActividadCollection() {
-        return actividadCollection;
+    public Actividad getActividad1() {
+        return actividad1;
     }
 
-    public void setActividadCollection(Collection<Actividad> actividadCollection) {
-        this.actividadCollection = actividadCollection;
+    public void setActividad1(Actividad actividad1) {
+        this.actividad1 = actividad1;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (salaPK != null ? salaPK.hashCode() : 0);
+        hash += (idsala != null ? idsala.hashCode() : 0);
         return hash;
     }
 
@@ -101,7 +113,7 @@ public class Sala implements Serializable {
             return false;
         }
         Sala other = (Sala) object;
-        if ((this.salaPK == null && other.salaPK != null) || (this.salaPK != null && !this.salaPK.equals(other.salaPK))) {
+        if ((this.idsala == null && other.idsala != null) || (this.idsala != null && !this.idsala.equals(other.idsala))) {
             return false;
         }
         return true;
@@ -109,7 +121,7 @@ public class Sala implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.Sala[ salaPK=" + salaPK + " ]";
+        return "Entities.Sala[ idsala=" + idsala + " ]";
     }
     
 }
