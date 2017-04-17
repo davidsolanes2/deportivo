@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="deportivo" name="model.pojos.Socio" optimistic-lock="version" table="socio">
+  <class catalog="deportivo" name="model.Socio" optimistic-lock="version" table="socio">
     <id name="idsocio" type="java.lang.Integer">
       <column name="idsocio"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="model.pojos.Usuario" fetch="select" name="usuario">
+    <many-to-one class="model.Usuario" fetch="select" name="usuario">
       <column length="10" name="idnifUsuarionif" not-null="true"/>
     </many-to-one>
     <property name="fechaBaja" type="date">

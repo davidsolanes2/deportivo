@@ -2,15 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="deportivo" name="model.pojos.Empleado" optimistic-lock="version" table="empleado">
+  <class catalog="deportivo" name="model.Empleado" optimistic-lock="version" table="empleado">
     <id name="idempleado" type="java.lang.Integer">
       <column name="idempleado"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="model.pojos.Categoria" fetch="select" name="categoria">
+    <many-to-one class="model.Categoria" fetch="select" name="categoria">
       <column name="categoria" not-null="true"/>
     </many-to-one>
-    <many-to-one class="model.pojos.Usuario" fetch="select" name="usuario">
+    <many-to-one class="model.Usuario" fetch="select" name="usuario">
       <column length="10" name="idEmpleadonif" not-null="true"/>
     </many-to-one>
     <property name="salario" type="double">

@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="deportivo" name="model.pojos.Participa" optimistic-lock="version" table="participa">
-    <composite-id class="model.pojos.ParticipaId" name="id">
+  <class catalog="deportivo" name="model.Participa" optimistic-lock="version" table="participa">
+    <composite-id class="model.ParticipaId" name="id">
       <key-property name="idparticipa" type="int">
         <column name="idparticipa"/>
       </key-property>
@@ -14,10 +14,10 @@
         <column name="actSuscrito"/>
       </key-property>
     </composite-id>
-    <many-to-one class="model.pojos.Actividad" fetch="select" insert="false" name="actividad" update="false">
+    <many-to-one class="model.Actividad" fetch="select" insert="false" name="actividad" update="false">
       <column name="actSuscrito" not-null="true"/>
     </many-to-one>
-    <many-to-one class="model.pojos.Usuario" fetch="select" insert="false" name="usuario" update="false">
+    <many-to-one class="model.Usuario" fetch="select" insert="false" name="usuario" update="false">
       <column length="10" name="nifUser" not-null="true"/>
     </many-to-one>
     <property name="fecha" type="date">

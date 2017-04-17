@@ -1,20 +1,21 @@
 
-package model.dao;
+package persistence;
 
 import hibernate.HibernateUtil;
-import model.pojos.Usuario;
+import model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.Query;
 import java.util.List;
+import org.hibernate.HibernateException;
 
 
 /**
  *
  * @author david
  */
-public class UsuarioDAO {
+public class DeportivoORM {
     public void ingresarUsuario (Usuario u) {
         SessionFactory sf=null;
         Session sesion=null;
@@ -27,7 +28,7 @@ public class UsuarioDAO {
             tx.commit();
             sesion.close();
         }
-        catch (Exception ex) {
+        catch (HibernateException ex) {
             tx.rollback();
             throw new RuntimeException ("No se pudo guardar");
         }  

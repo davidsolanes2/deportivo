@@ -2,14 +2,14 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="deportivo" name="model.pojos.Actividad" optimistic-lock="version" table="actividad">
+  <class catalog="deportivo" name="model.Actividad" optimistic-lock="version" table="actividad">
     <id name="idactividad" type="java.lang.Integer">
       <column name="idactividad"/>
       <generator class="foreign">
         <param name="property">sala</param>
       </generator>
     </id>
-    <one-to-one class="model.pojos.Sala" constrained="true" name="sala"/>
+    <one-to-one class="model.Sala" constrained="true" name="sala"/>
     <property name="descripcionActividad" type="string">
       <column length="50" name="descripcionActividad" not-null="true"/>
     </property>
@@ -23,7 +23,7 @@
       <key>
         <column name="actSuscrito" not-null="true"/>
       </key>
-      <one-to-many class="model.pojos.Participa"/>
+      <one-to-many class="model.Participa"/>
     </set>
   </class>
 </hibernate-mapping>

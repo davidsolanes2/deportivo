@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="deportivo" name="model.pojos.Usuario" optimistic-lock="version" table="usuario">
+  <class catalog="deportivo" name="model.Usuario" optimistic-lock="version" table="usuario">
     <id name="idnif" type="string">
       <column length="10" name="idnif"/>
       <generator class="assigned"/>
@@ -35,19 +35,19 @@
       <key>
         <column length="10" name="idnifUsuarionif" not-null="true"/>
       </key>
-      <one-to-many class="model.pojos.Socio"/>
+      <one-to-many class="model.Socio"/>
     </set>
     <set fetch="select" inverse="true" lazy="true" name="empleados" table="empleado">
       <key>
         <column length="10" name="idEmpleadonif" not-null="true"/>
       </key>
-      <one-to-many class="model.pojos.Empleado"/>
+      <one-to-many class="model.Empleado"/>
     </set>
     <set fetch="select" inverse="true" lazy="true" name="participas" table="participa">
       <key>
         <column length="10" name="nifUser" not-null="true"/>
       </key>
-      <one-to-many class="model.pojos.Participa"/>
+      <one-to-many class="model.Participa"/>
     </set>
   </class>
 </hibernate-mapping>
