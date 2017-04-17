@@ -49,12 +49,12 @@ Contributor(s):
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
-    <mapping resource="Pojos/Usuario.hbm.xml"/>
-    <mapping resource="Pojos/Empleado.hbm.xml"/>
-    <mapping resource="Pojos/Participa.hbm.xml"/>
-    <mapping resource="Pojos/Socio.hbm.xml"/>
-    <mapping resource="Pojos/Categoria.hbm.xml"/>
-    <mapping resource="Pojos/Actividad.hbm.xml"/>
-    <mapping resource="Pojos/Sala.hbm.xml"/>
+    <mapping resource="model/pojos/Usuario.hbm.xml"/>
+    <mapping resource="model/pojos/Empleado.hbm.xml"/>
+    <mapping resource="model/pojos/Participa.hbm.xml"/>
+    <mapping resource="model/pojos/Socio.hbm.xml"/>
+    <mapping resource="model/pojos/Categoria.hbm.xml"/>
+    <mapping resource="model/pojos/Actividad.hbm.xml"/>
+    <mapping resource="model/pojos/Sala.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

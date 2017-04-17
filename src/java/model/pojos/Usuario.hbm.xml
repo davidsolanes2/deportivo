@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-abr-2017 19:52:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="deportivo" name="model.pojos.Usuario" optimistic-lock="version" table="usuario">
+    <id name="idnif" type="string">
+      <column length="10" name="idnif"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="50" name="nombre" not-null="true"/>
+    </property>
+    <property name="apellidos" type="string">
+      <column length="50" name="apellidos" not-null="true"/>
+    </property>
+    <property name="telefono" type="string">
+      <column length="9" name="telefono" not-null="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column length="50" name="direccion" not-null="true"/>
+    </property>
+    <property name="poblacion" type="string">
+      <column length="50" name="poblacion" not-null="true"/>
+    </property>
+    <property name="cp" type="string">
+      <column length="5" name="cp" not-null="true"/>
+    </property>
+    <property name="fechaAlta" type="date">
+      <column length="10" name="fechaAlta" not-null="true"/>
+    </property>
+    <property name="mail" type="string">
+      <column length="50" name="mail" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="socios" table="socio">
+      <key>
+        <column length="10" name="idnifUsuarionif" not-null="true"/>
+      </key>
+      <one-to-many class="model.pojos.Socio"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="empleados" table="empleado">
+      <key>
+        <column length="10" name="idEmpleadonif" not-null="true"/>
+      </key>
+      <one-to-many class="model.pojos.Empleado"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="participas" table="participa">
+      <key>
+        <column length="10" name="nifUser" not-null="true"/>
+      </key>
+      <one-to-many class="model.pojos.Participa"/>
+    </set>
+  </class>
+</hibernate-mapping>
