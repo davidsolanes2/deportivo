@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+<%-- 
+    Document   : index01
+    Created on : 17-abr-2017, 12:52:33
+    Author     : david
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Centro Deportivo</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/deportivo.css">
-
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/deportivo.css" rel="stylesheet" type="text/css"/>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body id="relleno">
@@ -20,17 +25,17 @@
             <table align="center">
                 <tr>
                     <td>
-                        <img src="Image/Water_polo_1.jpg" alt="seccion de waterpolo" width="800" height="600"/>
+                        <img src="../Image/Water_polo_1.jpg" alt="seccion de waterpolo" width="800" height="600"/>
                     </td>      
                 </tr>
                 <tr>
                     <td>
-                        <img src="Image/sincro_1.jpg" alt="seccion de sincro" width="800" height="600"/>
+                        <img src="../Image/sincro_1.jpg" alt="seccion de sincro" width="800" height="600"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="Image/sala_4.jpeg" alt="seccion de gimnasia" width="800" height="600"/>
+                        <img src="../Image/sala_4.jpeg" alt="seccion de gimnasia" width="800" height="600"/>
                     </td>
                 </tr>
             </table>
@@ -38,14 +43,14 @@
                 <table>
                     <tr>
                         <td id="boton_1">
-                            <form action="main.html" method="post">
+                            <form action="main01.jsp" method="post">
                               <input type="submit" value="Acceso Administrador"/>
                             </form>
                         </td>
                     </tr>
                     <tr>
                         <td id="boton_2">
-                            <form action="template-03.html" method="post">
+                            <form action="template03.jsp" method="post">
                               <input type="submit" value="Acceso Usuarios"/>
                             </form>
                         </td>
@@ -55,10 +60,10 @@
         </div>
         <footer>
             <div class="pie_1" >
-                <tab>
+                <table>
                     <h6>Building by </h6>
                     <h4>Corneyesky/Llauna</h4>
-                </tab>
+                </table>
             </div>
             <div class="pie_2"></div>
         </footer>

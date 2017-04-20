@@ -1,13 +1,22 @@
-<!DOCTYPE html>
+<%-- 
+    Document   : template04
+    Created on : 20-abr-2017, 19:46:02
+    Author     : david
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-    <title>Centro Deportivo</title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Centro Deportivo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/deportivo.css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/deportivo.css" rel="stylesheet" type="text/css"/>
+    </head>
      <body id="relleno">
         <nav class="titulo">
             <p align="center">Actividades</p>
@@ -36,7 +45,7 @@
             <table>
                 <tr>
                     <td id="boton_9">
-                        <form action="main.html" method="post">
+                        <form action="main01.jsp" method="post">
                             <input type="submit" value="Anterior"/>
                         </form>
                     </td>

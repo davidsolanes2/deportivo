@@ -1,17 +1,25 @@
-<!DOCTYPE html>
+<%-- 
+    Document   : main01
+    Created on : 18-abr-2017, 22:11:14
+    Author     : david
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Centro Deportivo</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/deportivo.css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/deportivo.css" rel="stylesheet" type="text/css"/>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <style></style>
     </head>
-        <body id="relleno">
+    <body>
+        <div id="relleno">
         <nav class="titulo">
             <p align="center">Gestion del Centro Deportivo</p>
         </nav>
@@ -21,12 +29,12 @@
             <table>
                 <tr>
                     <td id="boton_4">
-                        <form action="template-01.html" method="post">
+                        <form action="template01.jsp" method="post">
                            <input type="submit" value="Registro General"/>
                         </form>
                     </td>
                     <td id="boton_5">
-                        <form action="template-02.html" method="post">
+                        <form action="template02.jsp" method="post">
                            <input type="submit" value="Datos Empleados"/>
                         </form>
                     </td>
@@ -40,7 +48,7 @@
                     </td>
                     -->
                     <td id="boton_7">
-                        <form action="template-03.html" method="post">
+                        <form action="template03.jsp" method="post">
                            <input type="submit" value="Datos Socios"/>
                         </form>
                     </td>
@@ -52,7 +60,7 @@
             <table>
                 <tr>
                     <td id="boton_8">
-                        <form action="template-04.html" method="post">
+                        <form action="template04.jsp" method="post">
                            <input type="submit" value="Actividades"/>
                         </form>
                     </td>
@@ -62,7 +70,7 @@
                 <table>
                     <tr>
                         <td id="boton_3">
-                            <form action="index.html" method="post">
+                            <form action="index.jsp" method="post">
                               <input type="submit" value="Home"/>
                             </form>
                         </td>
@@ -72,10 +80,10 @@
         </div>
         <footer>
             <div class="pie_1" >
-                <tab>
+                <table>
                     <h6>Building by </h6>
                     <h4>Corneyesky/Llauna</h4>
-                </tab>
+                </table>
             </div>
             <div class="pie_2"></div>
         </footer>
