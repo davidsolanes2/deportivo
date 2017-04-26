@@ -17,7 +17,32 @@
         <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../css/deportivo.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <h1>Hello World!</h1>
+    <body id="relleno">
+        <nav class="titulo">
+            <p align="center">Datos Usuario</p>
+        </nav>
+        <div>
+            <form action="newdate" method="POST">
+                <table class="form">
+                    
+                </table>
+            </form>
+            <br><br>
+            <div class="botonera">
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            </div>
+        </div>
+        <hr>
+        <div align="center">
+            <table>
+                <tr>
+                    <td id="boton_9">
+                        <form action="main01.jsp" method="post">
+                            <input type="submit" value="Anterior"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>

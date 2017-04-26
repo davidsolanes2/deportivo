@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td id="boton_2">
-                            <form action="main02.jsp" method="post">
+                            <form action="main50.jsp" method="post">
                               <input type="submit" value="Acceso Usuarios"/>
                             </form>
                         </td>
