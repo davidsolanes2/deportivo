@@ -3,15 +3,15 @@ Solo el Administrador puede dar de BAJA :
         - socio
         - empleado
 
-Añadir el campo "observaciones" en la entidad "actividades"
+Añadir el campo "observaciones" en la entidad "actividades" ?
 
 Listado de actividades:
-    Alta/Baja/Modificación actividades
+    Alta/Modificación actividades
 
 Listado de realizan_actividades:
-    Alta/Baja/Modificación realizan_actividades
+    Alta/Modificación realizan_actividades
 
-OBSERVACIONES : tienen un nº máximo y un nº minimo
+OBSERVACIONES : tienen un nº máximo y un nº minimo para realizar las actividades
                 el socio se puede apuntar
                 Solo el administrador puede dar de alta/baja/modificar una actividad
 
@@ -30,8 +30,15 @@ OBSERVACIONES : un empleado no puede darse de baja, se puede modificar y dar de 
 Listado usuarios:
 OBSERVACIONES : un usuario no puede darse de baja, se puede modificar y dar de alta
 
+Listado actividades:
+    Un empleado podra ser dado de alta para impartir una actividad
+
+
+Listado de categorias:
+    Un empleado podra tener la categoria de : mantenimiento, administracion, monitor, enfermeria
+
 SUGERENCIAS:
-    1.- poner menu en el Navbar y que sea desplegable
+    1.- 
     2.- el usuario tendra acceso a sus opciones
     3.- el empleado tendra acceso a sus opciones
     4.- el administrador tendra acceso a todo
