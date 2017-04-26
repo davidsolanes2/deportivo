@@ -112,11 +112,13 @@ input[type=date]
 }
 
 #user {
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    background-image: url("../Image/IMG_4010.jpg");
-    width: 1250px;
-    height: 440px;
+    padding-top: 150px;
+    padding-left: 350px;
 }
+
+#fondo-01 {
+    background-image: url("../Image/IMG_4010.jpg");
+    width: 1325px;
+    height: 650px;
+}
+

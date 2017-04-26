@@ -20,29 +20,29 @@
         <nav class="titulo">
             <p align="center">Bienvenido al Acceso de Usuarios</p>
         </nav>
-        <div align="center" id="user">
-            <br>
-            <form action="newuser" method="POST">
-                <table class="form">
-                    <tr>
-                        <td>Usuario :</td>
-                        <td>
-                            <input type="text" name="nombre">
-                        </td>
-                    </tr>
-                  
-                    <tr>
-                        <td>Password :</td>
-                        <td><input type="text" name="email"></td>
-                    </tr>
-                </table>
-            </form>
-            <br><br>
-            
-            <div class="botonera">
-                <input type="submit" value="Acceder" class="btn btn-primary">
+            <div id="fondo-01">
+                <div id="user">
+                    <br>
+                    <form action="newuser" method="POST">
+                        <table class="form">
+                            <tr>
+                                <td>Usuario :</td>
+                                <td>
+                                    <input type="text" name="nombre">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Password :</td>
+                                <td><input type="text" name="email"></td>
+                            </tr>
+                        </table>
+                    </form>
+                    <br>
+                    <div class="botonera">
+                        <input type="submit" value="Acceder" class="btn btn-primary">
+                    </div>
+                </div>
             </div>
-        </div>
         <hr>
         <div align="center">
             <table>
