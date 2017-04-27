@@ -16,6 +16,7 @@ import org.hibernate.HibernateException;
  * @author david
  */
 public class DeportivoORM {
+    
     public void ingresarUsuario (Usuario u) {
         SessionFactory sf=null;
         Session sesion=null;
